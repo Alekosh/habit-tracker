@@ -1,0 +1,21 @@
+footer{
+  margin-top: 60px;
+}
+.section__footer--title p {
+  font-size: 1.6em;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 15px;
+  right: 0;
+  left: 0;
+
+  &::before{
+    content: '';
+    position: absolute;
+    top: -15px;
+    width: 100%;
+    height: 2px;
+    background: #6cbe45;
+  }
+}
