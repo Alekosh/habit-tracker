@@ -12,7 +12,7 @@ const month = months[currentDate.getMonth()];
 const year = currentDate.getFullYear();
 
 span.innerHTML = `${day} ${month} ${year} года`;
-
+// Шаблон для нового блока
 const template = (id) => `
   <div class="block__week fadeIn" data-id="${id}">
     <form id="form">
@@ -99,10 +99,10 @@ const template = (id) => `
     </div>
   </div>`;
 
-
+// Генерация уникального ID
 const generateId = () => `block-${Date.now()}`;
 
-
+// Сохранение состояния в LocalStorage
 function saveToLocalStorage() {
   const blocksArray = [...blocks.children].map((block) => {
     const id = block.dataset.id;
@@ -117,7 +117,7 @@ function saveToLocalStorage() {
   localStorage.setItem('blocksContent', JSON.stringify(blocksArray));
 }
 
-
+// Загрузка состояния из LocalStorage
 function loadFromLocalStorage() {
   const savedBlocks = JSON.parse(localStorage.getItem('blocksContent') || '[]');
   savedBlocks.forEach(({ id, inputValue, checkBoxStates }) => {
@@ -131,7 +131,7 @@ function loadFromLocalStorage() {
   });
 }
 
-
+// Добавление нового блока
 btnAdd.addEventListener('click', () => {
 
   if (blocks.children.length < MAX_BLOCKS) {
@@ -147,7 +147,7 @@ btnAdd.addEventListener('click', () => {
 function updateResetButtonState() {
   btnReset.disabled = !blocks.children.length;
 }
-
+// Очистка всех блоков
 btnReset.addEventListener('click', () => {
   blocks.classList.add('fadeOut');
   setTimeout(() => {
@@ -159,7 +159,7 @@ btnReset.addEventListener('click', () => {
 
 });
 
-
+// Делегирование событий
 blocks.addEventListener('input', (event) => {
   if (event.target.matches('.inputField')) {
     event.target.classList.remove('error');
@@ -172,14 +172,14 @@ blocks.addEventListener('change', (event) => {
     const block = event.target.closest('.block__week');
     const inputField = block.querySelector('.inputField');
     if (inputField.value.trim() === '') {
-      event.target.checked = false;
+      event.target.checked = false; // Отменяем выбор
       inputField.classList.add('error');
     }
     saveToLocalStorage();
   }
 });
 
-
+// Загрузка данных при старте
 loadFromLocalStorage();
 updateResetButtonState()
 
