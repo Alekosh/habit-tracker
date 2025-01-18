@@ -1,19 +1,18 @@
+// Большие девайсы (десктопы, >= 992px)
+@media (max-width: 992px) { //default 992px
+  .block__week{
+    width: 49%;
+    gap: 0;
+    .checkboxes{
+      flex-wrap: wrap;
+    }
+  }
+}
 // Малые девайсы («ландшафтные телефоны», >= 576px)
 @media (max-width: 576px) { 
-
+  .block__week{
+    width: 100%;
+  }
 }
 
-// Средние девайсы («таблетки», >= 768px)
-@media (max-width: 768px) { 
 
-}
-
-// Большие девайсы (десктопы, >= 992px)
-@media (max-width: 992px) {
-
-}
-
-// Экстрабольшие девайсы (большие десктопы, >= 1200px)
-@media (max-width: 1200px) {
-
-}

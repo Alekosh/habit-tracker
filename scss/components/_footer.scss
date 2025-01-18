@@ -2,13 +2,13 @@ footer{
   margin-top: 60px;
 }
 .section__footer--title p {
-  font-size: 1.6em;
+  font-size: clamp(0.5rem, calc(0.318rem + 0.91vw), 1rem);
   position: absolute;
   display: flex;
   justify-content: center;
   bottom: 15px;
-  right: 0;
-  left: 0;
+  right: 15px;
+  left: 15px;
 
   &::before{
     content: '';

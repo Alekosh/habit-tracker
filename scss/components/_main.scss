@@ -8,7 +8,7 @@
   padding: 30px;
   position: relative;
   top: 60px;
-  min-height: 800px;
+  min-height: 500px;
 }
 .title{
   display: flex;
@@ -17,13 +17,17 @@
   position: relative;
   user-select: none;
   margin-bottom: 30px;
+  text-align: center;
+  h1{
+    padding: 0 30px;
+  }
   &::before,&::after{
     content: '';
     background: url('../../img/icon/leaves.png') no-repeat;
-    width: 64px;
-    height: 64px;
+    width: clamp(2rem, calc(1.273rem + 3.64vw), 4rem);
+    height: clamp(2rem, calc(1.273rem + 3.64vw), 4rem);
     position: absolute;
-    background-size: 64px 64px;
+    background-size: clamp(2rem, calc(1.273rem + 3.64vw), 4rem);
   }
   &::before{
     left: 0;
@@ -47,13 +51,14 @@
   justify-content: space-between;
   flex-wrap: wrap;
   // gap: 16px;
+  column-gap: 6px;
   row-gap: 12px;
 }
 .block__week{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: clamp(0.5rem, calc(0.318rem + 0.91vw), 1rem);
   position: relative;
   &::after{
     content: '';
@@ -62,18 +67,18 @@
     width: 100%;
     bottom: -8px;
   }
-  // flex: 0 1 50%;
-  // padding: 0 8px;
-  // width: calc(100% / 2);
 }
 .input{
   background: transparent;
   max-width: 100%;
   height: 100%;
   color: $white;
-  font-size: 1.8em;
+  font-size: clamp(0.75rem, calc(0.614rem + 0.68vw), 1.125rem);
 }
-.input::placeholder{color:rgb(189, 196, 189)}
+.input::placeholder{
+  color:rgb(189, 196, 189);
+  font-size: clamp(0.5rem, calc(0.318rem + 0.91vw), 1rem);
+}
 .error.input::placeholder{
   color: red;
 }

@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 30px;
   position: relative;
   top: 60px;
-  min-height: 800px;
+  min-height: 500px;
 }
 
 .title {
@@ -89,15 +89,20 @@ h1, h2, h3, h4, h5, h6 {
       -ms-user-select: none;
           user-select: none;
   margin-bottom: 30px;
+  text-align: center;
+}
+
+.title h1 {
+  padding: 0 30px;
 }
 
 .title::before, .title::after {
   content: '';
   background: url("../../img/icon/leaves.png") no-repeat;
-  width: 64px;
-  height: 64px;
+  width: clamp(2rem, calc(1.273rem + 3.64vw), 4rem);
+  height: clamp(2rem, calc(1.273rem + 3.64vw), 4rem);
   position: absolute;
-  background-size: 64px 64px;
+  background-size: clamp(2rem, calc(1.273rem + 3.64vw), 4rem);
 }
 
 .title::before {
@@ -136,6 +141,8 @@ h1, h2, h3, h4, h5, h6 {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-column-gap: 6px;
+          column-gap: 6px;
   row-gap: 12px;
 }
 
@@ -149,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  gap: 16px;
+  gap: clamp(0.5rem, calc(0.318rem + 0.91vw), 1rem);
   position: relative;
 }
 
@@ -166,23 +173,27 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 100%;
   height: 100%;
   color: #FFFFFF;
-  font-size: 1.8em;
+  font-size: clamp(0.75rem, calc(0.614rem + 0.68vw), 1.125rem);
 }
 
 .input::-webkit-input-placeholder {
   color: #bdc4bd;
+  font-size: clamp(0.5rem, calc(0.318rem + 0.91vw), 1rem);
 }
 
 .input:-ms-input-placeholder {
   color: #bdc4bd;
+  font-size: clamp(0.5rem, calc(0.318rem + 0.91vw), 1rem);
 }
 
 .input::-ms-input-placeholder {
   color: #bdc4bd;
+  font-size: clamp(0.5rem, calc(0.318rem + 0.91vw), 1rem);
 }
 
 .input::placeholder {
   color: #bdc4bd;
+  font-size: clamp(0.5rem, calc(0.318rem + 0.91vw), 1rem);
 }
 
 .error.input::-webkit-input-placeholder {
@@ -206,7 +217,7 @@ footer {
 }
 
 .section__footer--title p {
-  font-size: 1.6em;
+  font-size: clamp(0.5rem, calc(0.318rem + 0.91vw), 1rem);
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -215,8 +226,8 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
   bottom: 15px;
-  right: 0;
-  left: 0;
+  right: 15px;
+  left: 15px;
 }
 
 .section__footer--title p::before {
@@ -228,9 +239,25 @@ footer {
   background: #6cbe45;
 }
 
+@media (max-width: 992px) {
+  .block__week {
+    width: 49%;
+    gap: 0;
+  }
+  .block__week .checkboxes {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .block__week {
+    width: 100%;
+  }
+}
+
 html,
 body {
-  font-size: 10px;
   scroll-behavior: smooth;
 }
 
@@ -250,11 +277,15 @@ body {
 }
 
 h1 {
-  font-size: 5em;
+  font-size: clamp(1.125rem, calc(0.443rem + 3.41vw), 3rem);
 }
 
 h2 {
-  font-size: 4em;
+  font-size: clamp(1rem, calc(0.636rem + 1.82vw), 2rem);
+}
+
+h2 span {
+  font-size: clamp(1rem, calc(0.636rem + 1.82vw), 2rem);
 }
 
 .btns {
@@ -292,6 +323,10 @@ h2 {
           box-shadow: rgba(72, 95, 199, 0.25) 0 0 0 0.125em;
 }
 
+button[disabled] {
+  background: gray;
+}
+
 .checkboxes {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -308,8 +343,8 @@ h2 {
 .checkbox-wrapper {
   position: relative;
   display: inline-block;
-  height: 40px;
-  width: 40px;
+  height: clamp(1rem, calc(0.636rem + 1.82vw), 2rem);
+  width: clamp(1rem, calc(0.636rem + 1.82vw), 2rem);
 }
 
 .checkbox-wrapper .background {
@@ -383,7 +418,7 @@ h2 {
 }
 
 .box .box__title {
-  font-size: 1.2em;
+  font-size: clamp(0.375rem, calc(0.239rem + 0.68vw), 0.75rem);
   margin-bottom: 4px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -406,8 +441,8 @@ svg *[stroke] {
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -433,8 +468,8 @@ svg *[stroke] {
 .fadeOut {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
